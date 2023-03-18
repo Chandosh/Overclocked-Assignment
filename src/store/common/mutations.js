@@ -6,15 +6,13 @@ export function setUserDetails(state, value) {
 }
 export function setUserLoanApplications(state, value) {
   state.loanApplications = value;
-  // state.loanApplications.push({
-  //   loan_amount: 1000000.5,
-  //   offers_url:
-  //     'https://api.sfd.interview.ovckd.dev/api/v1/user/applications/1/offers',
-  //   university: 'Carnegie Mellon University',
-  // });
 }
 export function setUserLoanApplicationOffers(state, value) {
-  state.loanOffers = value;
+  var temp = value;
+  let sorted = temp.sort(
+    (a, b) => a.interest_rate * a.tenure - b.interest_rate * b.tenure
+  );
+  state.loanOffers = sorted;
 }
 
 export function resetUserLoanApplications(state) {

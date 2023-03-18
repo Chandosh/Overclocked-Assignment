@@ -5,6 +5,19 @@ export function setLoading({ commit }, value) {
   commit('setLoading', value);
 }
 
+// To Ping Server
+export async function pingServer({ dispatch }) {
+  dispatch('setLoading', true);
+  try {
+    const data = await request.get('/ping');
+    dispatch('setLoading', false);
+    return true;
+  } catch (e) {
+    dispatch('setLoading', false);
+    return false;
+  }
+}
+
 // To get User Details
 export async function getUserDetails({ commit, dispatch }) {
   dispatch('setLoading', true);
