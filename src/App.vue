@@ -5,6 +5,7 @@
 <script>
 import { defineComponent } from 'vue';
 import { mapActions, mapGetters } from 'vuex';
+import { getToken } from 'src/utils/auth';
 
 export default defineComponent({
   name: 'App',
@@ -12,7 +13,10 @@ export default defineComponent({
     ...mapGetters(['showLoading']),
   },
   async created() {
-    let status = await this.pingServer();
+    let status = true;
+    if (getToken()) {
+      status = await this.pingServer();
+    }
     if (!status) {
       this.$q.notify({
         message: 'Error reaching server',
