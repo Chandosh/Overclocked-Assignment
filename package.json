@@ -1,5 +1,4 @@
 {
-  "homepage": "https://chandosh.github.io/Overclocked-Assignment/",
   "name": "AssignmentApp",
   "version": "0.0.1",
   "description": "Assignment App",
@@ -7,9 +6,7 @@
   "author": "Chandosh Kumar<chandoshkumar@gmail.com>",
   "private": true,
   "scripts": {
-    "test": "echo \"No test specified\" && exit 0",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
